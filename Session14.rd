@@ -1,731 +1,631 @@
-Session13.1 : Set Data Structure
 
-Video 179:- Set Properties
+Video 187:- Dictionary Data Structure 
 
-* What is differance between 'List' and 'Set'?
--> My requirement is, I don't want duplicate values.
--> Unique objects only I want 
--> Order not important for me
+We can use List,Tuple and Set to represent a group of individual objects as a single entity. 
 
-If you have such type of requirement then happily we can
-go for 'Set Data Structure'.
+If we want to represent a group of objects as key-value pairs then we should go for 
 
--> If you want to represent a group of unique objects as a single 
-entity where order is not important.
+Dictionary. 
 
-1. Duplicates are not allowed
-2. Order is not applicate
-3. Indexing and Slicing Concepts are not applicable
-4. {10, 20, 30}
-5. Hetrogeneous Objects are allow
-6. Mutable in Nature(Add/Remove/update are allowed)
-7. Mathematical operations like:-
-    Union, intersection, differance, symmetric differance
+  
 
+Eg: 
 
-Note:-
-[] - List
-() - Tuple
-{} - Set
-{} - Dict
+rollno----name 
 
-* Create empty set object:- 
-- Here we cannot use 'empty curly braces' - { }
-- Bydefault empty curly braces {} is 'Dict Data type' but not set type.
+phone number--address 
 
+ipaddress---domain name 
 
-eg.
-s = { }
-print(type(s))
->> <Class 'dict'>
+  
 
+Duplicate keys are not allowed but values can be duplicated. 
 
-Q:- Why python people give priorities to 'Dict' over 'set'?
--> The reason is among 'set' and 'dict', 'dictionary is the most 
-commonly used, thats why be defauly it is treated as the 'dict' type.
+Hetrogeneous objects are allowed for both key and values. 
 
-Q:- How we can use empty set ?
+insertion order is not preserved 
 
-s = set()
+Dictionaries are mutable 
 
-# how to add element
+Dictionaries are dynamic 
 
-s.add(10)
-s.add('Z')
-s.add('A')
-s.add(20)
-s.add(10)
-print(s)
+indexing and slicing concepts are not applicable 
 
-Output:
-{'A', 10, 20, 'Z'} # Here, duplicate not allow, Order is not fix.
+  
 
-# Indexing is not allow
-print(s[0])
+Note: In C++ and Java Dictionaries are known as "Map" where as in Perl and Ruby it is 
 
-error:
- print(s[0])
-TypeError: 'set' object is not subscriptable
+known as "Hash" 
 
-# Slicing is not allow
-print(s[1:3])
-    print(s[1:3])
-TypeError: 'set' object is not subscriptable
+  
 
+------------------------------------------------------------------------------------------------ 
+Video 188: *** How to create Dictionary? *** 
 
-Q. Diff. between List and Set. 
+d={} or d=dict() 
 
-                        List          Set
-1. Duplicate            allow         not allow
-2. Insertion Order      allow         not allow
-3. Example              [10, 20, 30]  {10, 20, 30} 
-4. Indexing & Slicing   allow         not allow     
+  
 
+we are creating empty dictionary. We can add entries as follows 
 
+  
 
-----------------------------------------------
+d[100]="aashish" 
 
+d[200]="neha" 
 
-Video 180 - Creation of Set object
+d[300]="shiva" 
 
-1. Empty Set 
+print(d) #{100: 'aashish', 200: 'neha', 300: 'shiva'} 
 
-s = { }      # this is dict but not set
-s = set()    # we need to use set function
+  
 
-2. If we have data already:
+If we know data in advance then we can create dictionary as follows 
 
-s = {10, 20, 30, 40}
-#within curly braces a list of comma separated values,
-which is nothing but 'set' only.
+  
 
-3. By using set() function:
-if you have string, I want to create set by using element in string.
-if you have list, I want to create set by using all element in List.
+d={100:'aashish' ,200:'neha', 300:'shiva'} 
 
-If I want to conver from string, list, range to 'set', for given collection.
+d={key:value, key:value} 
 
-eg1. 
-l = [10, 20, 30, 40]
-s = set(l)
-print(s)
+  
 
-# We will get {10, 20, 30, 40} but order is not fixed. 
+------------------------------------------------------------------------------------------------ 
+Video 189: *** How to access data from the dictionary? *** 
 
-Output:-
-{40, 10, 20, 30}
+We can access data by using keys. 
 
-eg2.
-s1 = ("Hello Aashish, How are you?")
-s = set(s1)
-print(s)
+d={100:'aashish' ,200:'neha', 300:'shiva'} 
+
+print(d[100]) #aashish 
+
+print(d[300]) #shiva 
+
+  
+
+If the specified key is not available then we will get KeyError 
+
+  
+
+print(d[400]) # KeyError: 400 
+
+  
+
+We can prevent this by checking whether key is already available or not by using has_key() function or by using in operator. 
+
+  
+
+d.has_key(400) ==> returns 1 if key is available otherwise returns 0 
+
+  
+
+But has_key() function is available only in Python 2 but not in Python 3.  
+
+Hence compulsory we have to use in operator. 
+
+  
+
+if 400 in d: 
+
+print(d[400]) 
+
+  
+
+---------------------------------------------------------------------------------------------- 
+Video 190:- Q. Write a program to enter name and percentage marks in a dictionary and 
+
+display information on the screen 
+
+1) rec={} 
+
+2) n=int(input("Enter number of students: ")) 
+
+3) i=1 
+
+4) while i <=n: 
+
+5) name=input("Enter Student Name: ") 
+
+6) marks=input("Enter % of Marks of Student: ") 
+
+7) rec[name]=marks 
+
+8) i=i+1 
+
+9) print("Name of Student","\t","% of marks") 
+
+10) for x in rec: 
+
+11) print("\t",x,"\t\t",rec[x]) 
+
+12) 
+
+13) Output 
+
+14) D:\Python_classes>py test.py 
+
+15) Enter number of students: 3 
+
+16) Enter Student Name: aashish 
+
+17) Enter % of Marks of Student: 60% 
+
+18) Enter Student Name: neha 
+
+19) Enter % of Marks of Student: 70% 
+
+20) Enter Student Name: shiva 
+
+21) Enter % of Marks of Student: 80% 
+
+22) Name of Student % of marks 
+
+23) aashish 60% 
+
+24) neha 70 % 
+
+25) shiva 80% 
+
+  
+
+---------------------------------------------------------------------- 
+
+Video 191:- How to update dictionaries? 
+
+d[key]=value 
+
+If the key is not available then a new entry will be added to the dictionary with the 
+specified key-value pair 
+
+  
+
+If the key is already available then old value will be replaced with new value. 
+
+Eg: 
+
+d={100:"aashish",200:"neha",300:"shiva"} 
+
+print(d) 
+
+d[400]="pavan" 
+
+print(d) 
+
+d[100]="sunny" 
+
+print(d) 
+
+  
+
+Output 
+
+{100: 'aashish', 200: 'neha', 300: 'shiva'} 
+
+{100: 'aashish', 200: 'neha', 300: 'shiva', 400: 'pavan'} 
+
+{100: 'sunny', 200: 'neha', 300: 'shiva', 400: 'pavan'} 
+
+  
+
+---------------------------------------------- 
+
+How to delete elements from dictionary? 
+
+  
+
+del d[key] 
+
+  
+
+It deletes entry associated with the specified key. 
+
+If the key is not available then we will get KeyError 
+
+  
+
+Eg: 
+
+d={100:"aashish",200:"neha",300:"shiva"} 
+
+print(d) 
+
+del d[100] 
+
+print(d) 
+
+del d[400] 
+
+  
+
+Output 
+
+{100: 'aashish', 200: 'neha', 300: 'shiva'} 
+
+{200: 'neha', 300: 'shiva'} 
+
+KeyError: 400 
+
+    
+
+*** d.clear() *** 
+
+To remove all entries from the dictionary 
+
+Eg: 
+
+  
+
+d={100:"aashish",200:"neha",300:"shiva"} 
+
+print(d) 
+
+d.clear() 
+
+print(d) 
+
+  
+
+Output 
+
+{100: 'aashish', 200: 'neha', 300: 'shiva'} 
+
+{} 
+
+  
+
+  
+
+*** del d *** 
+
+To delete total dictionary.Now we cannot access d 
+
+Eg: 
+
+d={100:"aashish",200:"neha",300:"shiva"} 
+
+print(d) 
+
+del d 
+
+print(d) 
+
+  
+
+  
+
+Output 
+
+{100: 'aashish', 200: 'neha', 300: 'shiva'} 
+
+NameError: name 'd' is not defined 
+
+  
+
+  
+
+-------------------------------------------------------- 
+video 192 to video 196:- Important functions of dictionary: 
+
+1. dict(): 
+
+  
+
+To create a dictionary 
+
+  
+
+d=dict() ===>It creates empty dictionary 
+
+d=dict({100:"aashish",200:"neha"}) ==>It creates dictionary with specified elements 
+
+d=dict([(100,"aashish"),(200,"shiva"),(300,"neha")])==>It creates dictionary with the given 
+
+list of tuple elements 
+
+  
+
+2. len() 
+
+Returns the number of items in the dictionary 
+
+  
+
+3. clear(): 
+
+To remove all elements from the dictionary 
+
+  
+
+4. get(): 
+
+To get the value associated with the key 
+
+  
+
+*** d.get(key) *** 
+
+If the key is available then returns the corresponding value otherwise returns None.It 
+
+wont raise any error. 
+
+  
+
+d.get(key,defaultvalue) 
+
+If the key is available then returns the corresponding value otherwise returns default 
+
+value. 
+
+  
+
+  
+
+Eg: 
+
+d={100:"aashish",200:"neha",300:"shiva"} 
+
+print(d[100]) ==>aashish 
+
+print(d[400]) ==>KeyError:400 
+
+print(d.get(100)) ==aashish 
+
+print(d.get(400)) ==>None 
+
+print(d.get(100,"Guest")) ==aashish 
+
+print(d.get(400,"Guest")) ==>Guest  
+
+-------------------------------------------------------- 
+
+3. pop(): 
+
+    
+
+d.pop(key) 
+
+  
+
+It removes the entry associated with the specified key and returns the corresponding 
+
+value. 
+
+If the specified key is not available then we will get KeyError. 
+
+  
+
+Eg: 
+
+d={100:"aashish",200:"neha",300:"shiva"} 
+
+print(d.pop(100)) 
+
+print(d) 
+
+print(d.pop(400)) 
+
+  
 
 Output:- 
-{'r', 'i', '?', ' ', 's', 'A', 'e', ',', 'w', 'o', 'y', 'u', 'h', 'H', 'l', 'a'}
 
-eg3:
-s2 = set(range(0,101,10))
-print(s2)
+aashish 
 
-Output:-
-{0, 100, 70, 40, 10, 80, 50, 20, 90, 60, 30}
+{200: 'neha', 300: 'shiva'} 
 
-eg4:
-s = set('aashish')
-print(s)
+KeyError: 400 
 
-output:- 
-{'a', 'i', 's', 'h'}
+  
 
-eg5: By using input function:
+--------------------------------------------------------- 
 
-s = eval(input("Enter value:"))
-print(s)
+4. popitem(): 
 
-output:
-Enter value:{10,20,30,40}
-{40, 10, 20, 30}
+    
 
-----------------------------------------------------
+It removes an arbitrary item(key-value) from the dictionaty and returns it. 
 
+  
 
+Eg: 
 
-Video 181 :- Mathematical Operators for set:
+d={100:"aashish",200:"neha",300:"shiva"} 
 
-s1 = {10, 20, 30}
-s2 = {30, 40, 50}
+print(d) 
 
--------------
-s3 = s1+s2
-s3 = s1*3
--------------
+print(d.popitem()) 
 
-- Plus Operators and Star Operators we can happily apply in 
-List and Tuple but not in 'set'. 
+print(d) 
 
-- By mistakenly if you use + or * in set then you will get 
-"TypeError".
+  
 
-eg1.
-s1 = {10, 20, 30}
-s2 = {30, 40, 50}
+Output 
 
-s3 = s1+s2
-print(s3)
+{100: 'aashish', 200: 'neha', 300: 'shiva'} 
 
-ouput:- 
-    s3 = s1+s2
-TypeError: unsupported operand type(s) for +: 'set' and 'set'
+(300, 'shiva') 
 
-eg2:
-s1 = {10, 20, 30}
-s2 = {30, 40, 50}
+{100: 'aashish', 200: 'neha'} 
 
-s3 = s1*3
-print(s3)
+  
 
-ouput:
-   s3 = s1*3
-TypeError: unsupported operand type(s) for *: 'set' and 'int'
+  
 
+If the dictionary is empty then we will get KeyError 
 
-Now, we will check Equal Operators is allow or not. 
+d={} 
 
-eg3:-
-s1 = {10, 20, 30}
-s2 = {30, 10, 20}
+print(d.popitem()) ==>KeyError: 'popitem(): dictionary is empty' 
 
-# Both s1 and s2 having same elements but order is not same.
-# and in 'set' order is not important. 
+  
 
-print(s1==s2)
+----------------------------------------- 
 
-output:-
-True
+  
 
-print(s1!=s2)
+5. keys(): 
 
-ouput:-
-False
+It returns all keys associated eith dictionary 
 
-Hence, Equal Operators is applicable. 
+  
 
-* Relational Operator for set
+Eg: 
 
-s1 = {10, 20, 30}
-s2 = {20, 10, 5, 6, 7}
+d={100:"aashish",200:"neha",300:"shiva"} 
 
-print(s1<s2) => False
-print(s1>s2) => False
-print(s1<=s2) => False
-print(s1>=s2) => False
+print(d.keys()) 
 
+for k in d.keys(): 
 
-Note:- Relational Operator applicable for set, but not implemented
-that much meaningful. 
+    print(k) 
 
-* Membership Operator : It is applicable for 'set'
+  
 
-in
-not in
+Output 
 
-eg.
+dict_keys([100, 200, 300]) 
 
-s = {10, 20, 30, 40}
-print(10 in s)          #o/p : True
-print(50 in s)          #o/p : False
-print(50 not in s)      #o/p : True
+100 
 
---------------------------------------------------
+200 
 
+300 
 
-Video 182 :- Important Functions and methods for set:len(), add() and update()
+  
 
-1. len():
-        Returns number of elements present in set.
-        It is a python in-build function.
+  
 
-eg. 
+-------------------------------------- 
 
-s = {10,20,30,40}
-print(len(s))
+  
 
-o/p:
-4
+6. values(): 
 
-2. add():
-        It is a 'set' specific method. 
+It returns all values associated with the dictionary 
 
-s = {10,20,30,40}
-s.add(50)
-s.add(60)
-print(s)
+  
 
-Here, we should get {10,20,30,40,50,60} output but order is not sure.
+  
 
-o/p:
-{40, 10, 50, 20, 60, 30}
+Eg: 
 
-Note: For 'list' we have 'append' method. 
+  
 
-Q: Why for 'list' we have 'append()' method and
-why for 'set' we have 'add()' method?
+d={100:"aashish",200:"neha",300:"shiva"} 
 
-l = [10,20,30,40]
-l.append(50)
-print(l)
+print(d.values()) 
 
-o/p:
-[10,20,30,40,50]   #fix output
+for v in d.values(): 
 
-Now append in the case of list the specfied element will be added yet last.
-That is the reason append is the method use in list.
+    print(v) 
 
+  
 
-But it is 'set' where this element will going to added,
-I don't know maybe at 1st or at 2nd or at last position, somewhere
-because order is not important in 'set'. 
-That why we are simple use word 'add' not 'append'. 
+Output 
 
-3. update():
-            Which purpose we can use update method to add multiple items to set. 
-            we can pass any number of arguments.
-            Argument should be iterable object not invidivual Operator
-            like list, set, dict, string.
+dict_values(['aashish', 'neha', 'shiva']) 
 
-eg.
+aashish 
 
-s.update(s1,s2)
+neha 
 
-All element present in s1 and s2 but all given Operator should be 
+shiva 
 
+  
 
-s.update(s1)
-s.update(s1,s2,s3)
+  
 
-eg. 
-s = {10,20}
-l = [30,40]
+------------------------------------------ 
 
-s.update(l)
+  
 
-print(s)
+7. items(): 
 
-o/p:
-{40, 10, 20, 30}
+It returns list of tuples representing key-value pairs. 
 
-eg2:
+  
 
-s = {10,20}
-l = [30,40]
-s.update(range(1,6), 'durga')
-print(s)
+\[(k,v),(k,v),(k,v)] 
 
+Eg: 
 
-o/p;
-{1, 2, 3, 4, 5, 'u', 10, 'g', 'r', 'd', 20, 'a'}
+d={100:"aashish",200:"neha",300:"shiva"} 
 
+for k,v in d.items(): 
 
+    print(k,"--",v) 
 
-Q: Differences between add() and update()
+  
 
+Output 
 
-    add()                               update()
-1. We can use add()             1. We can use update()
-method to add                       method to add 
-individual item to                  mutiple item to 
-the set.                            the set.
+100 -- aashish 
 
-2. add() method can             2. Update() method can take any number 
-take only one                       of arguments, but all arguments should be 
-agrument.                           iterable object.
+200 -- neha 
 
+300 -- shiva 
 
-Q. Which of the following are valid.
+  
 
-s.add(10)
-s.add(10,20,30)
-s.update(10)
-s.update(range(1,10,2), range(0,10,2))
+  
 
-valid
-invalid
-invalid
-valid
+---------------------------------------- 
 
----------------------------------------------
+  
 
-Video 183 - Important Methods and Functions for set:
-remove(), discard(), pop() and clear()
+8. copy(): 
 
-*** There are 4 methods to remove element from set.
+To create exactly duplicate dictionary(cloned copy) 
 
-1. remove()
+  
 
-syntax:
-s.remove(x)   
+d1=d.copy(); 
 
-#specfied element will be removed
-#if element not available then it will give 'KeyError'
+------------------------------------------- 
 
-eg1:-
+9. setdefault(): 
 
-s = {10,20,30,40}
-s.remove(30)
-print(s)
+  
 
- o/p: {10,20,40}
-Actual o/p: {40, 10, 20}
+d.setdefault(k,v) 
 
-eg2:-
+    If the key is already available then this function returns the corresponding value. 
 
-s = {10,20,30,40}
-s.remove(50)
-print(s)
+    If the key is not available then the specified key-value will be added as new item to the 
 
-o/p:
-    s.remove(50)
-KeyError: 50
+dictionary. 
 
-So, Problem here is if specfied element not present then it 
-gives KeyError so what we want that if element not present
-then don't give error simply ignore or discard it. 
+  
 
-2. discard()
+Eg: 
 
-s.discard(x)
+d={100:"aashish",200:"neha",300:"shiva"} 
 
-eg1:-
+print(d.setdefault(400,"pavan")) 
 
-s = {10,20,30,40}
-s.discard(30)
-print(s)
+print(d) 
 
-o/p: {40, 10, 20}
+print(d.setdefault(100,"sachin")) 
 
-eg2:-
+print(d) 
 
-s = {10,20,30,40}
-s.discard(30)
-print(s)
+  
 
-o/p: {40, 10, 20, 30}
+Output:- 
 
+pavan 
 
-3. pop()
+{100: 'aashish', 200: 'neha', 300: 'shiva', 400: 'pavan'} 
 
-s.pop()
+aashish 
 
-- This pop() method don't take any arguments as input,
-it is going to remove and return some random element.
+{100: 'aashish', 200: 'neha', 300: 'shiva', 400: 'pavan'} 
 
-which element it will going to remove we don't know.  
+  
 
+-------------------------------------------------------- 
 
-s = {10,20,30,40}
-print(s.pop())     # may remove 40
-print(s.pop())     # may remove 10
-print(s.pop())     # may remove 20
-print(s.pop())     # may remove 30
-print(s)           # It will give empty set()
+10. update(): 
 
-# onces all element remove then it will give error when we use pop() method in empty set.
-print(s.pop())     
-output:-
-  print(s.pop())
-KeyError: 'pop from an empty set'
+d.update(x) 
 
-3. Clear()
-
-- If I want to remove all element from 'set', then you need to use clear() method.
-
-s = {10,20,30,40}
-print(s)        #o/p: {40, 10, 20, 30}
-s.clear()
-print(S)        #o/p: empty set()
-
-output:-
-
-{40, 10, 20, 30}
-set()
-
-
----------------------------------------------
-
-Video 184: Operators: union(), intersection(), difference() and symmetric_difference()
-
-
-1. union() : All element present in s1 and s2.
-- To combine the elements of 2 sets into a single set,
- then we required to go for union operations.
-
-eg:-
-s1 = {10, 20, 30, 40}
-s2 = {30, 40, 50, 60}
-s3 = s1.union(s2)
-print(s3) 
-
-o/p:
-{40, 10, 50, 20, 60, 30}
-
-or
-
-s1 = {10, 20, 30, 40}
-s2 = {30, 40, 50, 60}
-s3 = s1|s2           # here, we using symbol of union which pip '|'
-print(s3) 
-
-o/p:
-{40, 10, 50, 20, 60, 30}
-
-
-2. intersection() 
-- Common element 
-
-
-eg:-
-s1 = {10, 20, 30, 40}
-s2 = {30, 40, 50, 60}
-s3 = s1.intersection(s2)  
-s4 = s1 & s2
-print(s3)
-print(s4)
-
-o/p:
-{40, 30}
-{40, 30}
-
-
-
-3. difference() 
-- 
-
-s1 = {10, 20, 30, 40}
-s2 = {30, 40, 50, 60}
-s3 = s1.difference(s2) 
-s4 = s1 - s2
-s5 = s2 - s1
-# element present in s1 but not in s2
-
-print(s3)
-print(s4)
-print(s5)
-
-ouput:
-{10, 20}
-{10, 20}
-{50, 60}
-
-
-
-4. symmetric_difference()
-- The elements present inside S1, but not in S2 and
-the elements present inside s2, but not in s1.
-- So the elements present either in s1 or s2 but not in Both.
-- So commonly excet the common elements, the remaining elemnts is nomthing but 
-is symmetric_difference().
-
-
-eg.
-
-s1 = {10, 20, 30, 40}
-s2 = {30, 40, 50, 60}
-s3 = s1.symmetric_difference(s2) 
-s4 = s1 ^ s2
-s5 = s2 ^ s1
-print(s3)
-print(s4)
-print(s5)
-
-
-output:-
-
-{10, 50, 20, 60}
-{10, 50, 20, 60}
-{10, 50, 20, 60}
-
-------------------------------------------------------
-
-Video 185: Aliasing, cloning and Comprehension of set
-
-
-suppose I have one set.
-
-s = {10, 20, 30}
-
-if I use, s2 = s1
-
-- So here, we are creating duplicate referance variable 
-  for exesting object.
-- This concept is nothing but Aliasing. 
-- The process of creating duplicate referance variable is called 'Aliasing' concept.
- 
-
-
-- Problem with Aliasing concept:- 
-1. If I perform any change, I add a new object, I remove existing object.
-   Then what will be happend? 
-   Those change will be reflacted to s2. 
-2. Similarly, if I perform any change by using s2, 
-   those changes will be reflacted to s1.
-
-eg. 
-
-s1 = {10, 20, 30}
-s2 = s1
-
-print(s1)       #o/p: {10, 20, 30}
-print(s2)       #o/p: {10, 20, 30}
-
-s1.pop()
-print(s1)       #o/p: {20, 30}
-print(s2)       #o/p: {20, 30}
-
-
-
-
-- So how I can prevent this ? 
-
-2. cloning()
-
-- I want independent object, separate independent object.
-  That process is called cloning.
-- The process of creating completely new, new object with the same content is called cloning.
-
-s1 = {10, 20, 30, 40}
-
-s2 = s1.copy()
-
-- So If you perform any change in s1 then it won't apply in s2 and vise varsa.
-
-eg.
-
-eg. 
-
-s1 = {10, 20, 30}
-s2 = s1
-
-print(s1)       #o/p: {10, 20, 30}
-print(s2)       #o/p: {10, 20, 30}
-
-s1.pop()
-print(s1)       #o/p: {20, 30}
-print(s2)       #o/p: {10, 20, 30}
-
-
-3.  Set Comprehension:
-
-- Comprehension is not possible in Tuple.
-- Comprehension is possible in List and set.
-
-
-- From 1 to 5 I want squre value
-
-eg.
-
-s = {x*x for x in range(1,6)}
-print(s)
-print(type(s))
-
-o/p:
-{1, 4, 9, 16, 25}
-<class 'set'>
-
-eg.
-
-s = [x*x for x in range(1,6)]
-print(s)
-print(type(s))
-
-o/p:
-[1, 4, 9, 16, 25]
-<class 'list'>
-
-
-eg3. 
-# for given value I want power value. 
-
-s = {2**x for x in range(1,6)}
-print(s)
-
-S1 = {x**x for x in range(1,6)}
-print(1)
-
-
-o/p:
-{32, 2, 4, 8, 16}
-{256, 1, 4, 3125, 27}
-
-
--------------------------------------------
-
-Video 186:- Practice Program
-
-1. WAP to eliminate duplicates present in the list?
-
-Approach 1:
-
-l = [10,10,20,30,10,20,30]
-s = set(l)                  # Set will remove all duplicate elements
-print(s)                    # output in type 'set'
-l1 = list(s)                # Convert [set' into 'list'
-print(l1)                   # output in type 'list'
-
-ouput:-
-{10, 20, 30}
-[10, 20, 30]
-
-Approach-2:
-
-l = [10,10,20,30,10,20,30]
-l1 = []
-for x in l:
-    if x not in l1:
-        l1.append(x)
-print(l1)
-
-output:
-[10, 20, 30]
-
-
-2. WAP to print different vowels present in the given word?
-
-Approach-1:
-
-word = input("Enter any word to search for vowels: ")
-
-s = set(word)   # convert word into set and unqiue value
-print(s)
-v = {'a','e','i','o','u'}
-
-result = s & v   #s.intersection(v)
-print('The Different Vowels Present in {} are:{}'.format(word, result))
-
-output:-
-
-{'i', 's', 'e', 'h', 'l', 'a', 'n', 'j', 'o'}
-The Different Vowels Present in helloaashishjainneha are:{'a', 'i', 'o', 'e'}
-
-
-If we want result in sorted form as list. 
-
-
-Approach-2:
-
-word = input("Enter any word to search for vowels: ")
-
-s = set(word)   # convert word into set and unqiue value
-print(f'Total unique word are {s}')
-v = {'a','e','i','o','u'}
-
-result = s & v   #s.intersection(v)
-print('The Different Vowels Present in {} are:{}'.format(word, sorted(result)))
-
-
-output:
-
-Total unique word are {'j', 'h', 'i', 'n', 'e', 'a', 's'}
-The Different 
-Vowels Present in aashishjainneha are:['a', 'e', 'i']
-
-
+All items present in the dictionary x will be added to dictionary d 
