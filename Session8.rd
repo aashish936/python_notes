@@ -729,7 +729,7 @@ WAP: to generate prime number which are less then or equal the even number?
 
 WAP: TO generate 1st n prime numbers?
 --------------------------------------------------
-
+Video 104:-
 WAP: To check whether the given number is prime number or not?
 - If it is PN then it must be greater then one. 
 - It is 2 factors
@@ -778,9 +778,9 @@ Note:
       break
 
    
+------------------------------------------------------------------------------------------
 
-
-WAP: to generate prime number which are less then or equal the even number?
+Video 105:- WAP: to generate prime number which are less then or equal the even number?
 
 10 is there
 can you generate number which are less then or equal to 10.
@@ -805,9 +805,7 @@ o/p:
 Enter n value: 10
 2 3 5 7
 ---------------------------------
-
-
-WAP: To generate 1st n prime numbers?
+Video 106: WAP: To generate 1st n prime numbers?
 
 
 code:
@@ -832,11 +830,3 @@ o/p:
 
 Enter n value: 20
 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71
-
-
-      
-
-
-
-
-
